@@ -28,8 +28,7 @@ jobs:
     - name: Build Docker Image
       run: |
         echo "Iniciando Build"
-        cd graphql-actions/
-        docker build -t $DOCKER_USER/docker-graphql:0.0.2 .
+        cd graphql-actions/ && docker build -t $DOCKER_USER/docker-graphql:0.0.2 .
         echo "Build Finalizado"
     
     - name: Push Docker Image
