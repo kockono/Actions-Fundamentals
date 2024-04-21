@@ -21,9 +21,9 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
-        echo "Inicio de login"
+        echo $DOCKER_USER
+        echo $DOCKER_PASSWORD
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "Fin del login"
     
 #    - name: Build the Docker image
 #      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
