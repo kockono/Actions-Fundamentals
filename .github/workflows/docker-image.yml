@@ -22,7 +22,7 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
         echo "Iniciando Login"
-        echo docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
         echo "Login Finalizado"
         
     - name: Build Docker Image
@@ -34,5 +34,5 @@ jobs:
     - name: Push Docker Image
       run: |
         echo "Iniciando Push"
-        cd graphql-actions && docker push chrisajna/docker-graphql:0.0.2
+        docker push chrisajna/docker-graphql:0.0.2
         echo "Push Finalizado"    
