@@ -34,5 +34,5 @@ jobs:
     - name: Push Docker Image
       run: |
         echo "Iniciando Push"
-        docker push chrisajna/docker-graphql:0.0.2
+        cd graphql-actions && docker push chrisajna/docker-graphql:0.0.2
         echo "Push Finalizado"    
