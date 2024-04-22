@@ -28,18 +28,21 @@ jobs:
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        NEW_VERSION: ${{ steps.version.outputs.version }} # Obtiene el valor de la versión de Git Semantic Version
+        
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         echo "Login Finalizado"
         
     - name: Build Docker Image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        echo "Iniciando Build"
         cd graphql-actions && docker build -t chrisajna/docker-graphql:$NEW_VERSION .
-        echo "Build Finalizado"
+        cd graphql-actions && docker build -t chrisajna/docker-graphql:latest .
     
     - name: Push Docker Image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
         echo "Iniciando Push"
         docker push chrisajna/docker-graphql:$NEW_VERSION
