@@ -36,14 +36,12 @@ jobs:
     - name: Build Docker Image
       run: |
         echo "Iniciando Build"
-        cd graphql-actions && docker build -t chrisajna/docker-graphql:0.0.2 .
-        cd graphql-actions && docker build -t chrisajna/docker-graphql:latest .
+        cd graphql-actions && docker build -t chrisajna/docker-graphql:$NEW_VERSION .
         echo "Build Finalizado"
     
     - name: Push Docker Image
       run: |
         echo "Iniciando Push"
-        docker push chrisajna/docker-graphql:0.0.2
-        docker push chrisajna/docker-graphql:latest
+        docker push chrisajna/docker-graphql:$NEW_VERSION
         echo "Push Finalizado"    
    
