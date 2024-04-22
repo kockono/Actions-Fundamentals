@@ -21,7 +21,7 @@ jobs:
       with:
         major_pattern: 'major:' # git commit -m "major: Mensaje"
         minor_pattern: 'feat:'  # git commit -m "feat: Mensaje"
-        format: $"{major}.{minor}.{patch}-prerelease${increment}"
+        format: "${major}.${minor}.${patch}-prerelease${increment}"
       id: version # Permite hacer referencia al scrope de Git Semantic Version
 
     - name: Docker login
