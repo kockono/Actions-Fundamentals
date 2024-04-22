@@ -37,8 +37,9 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        cd graphql-actions && docker build -t chrisajna/docker-graphql:$NEW_VERSION .
-        cd graphql-actions && docker build -t chrisajna/docker-graphql:latest .
+        cd graphql-actions
+        docker build -t chrisajna/docker-graphql:$NEW_VERSION .
+        docker build -t chrisajna/docker-graphql:latest .
     
     - name: Push Docker Image
       env:
